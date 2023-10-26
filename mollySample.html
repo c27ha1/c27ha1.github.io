@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https:fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Courier+Prime&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-
+    
     <style type="text/css">
         body {
             background-image: url("https://i.redd.it/gl9m731jlnm41.png");
@@ -35,9 +34,17 @@
             font-size: 36px;
         }
 
+        .section {
+            width: 400px;
+            height: 400px;
+            background-size: 400px 267.1px;
+            background-repeat: no-repeat;
+            transition: 2s;
+            position: relative;
+        }
+
         .box {
-            position: absolute;
-            top: 150px;
+        	position: absolute;top: 150px;
             width: 425px;
             height: 300px;
             background-color: lightblue;
@@ -45,7 +52,6 @@
             display: inline-block;
             margin: 10px;
             background-size: 100% 100%;
-            transition: background-image 2s;
         }
 
         .text {
@@ -54,45 +60,46 @@
             text-align: center;
             position: relative;
             top: 105%;
-            font-size: 36px;
+             font-size: 36px
         }
 
-        #journal:hover {
-            background-image: url("https://soumya2012.files.wordpress.com/2013/03/036-letter-writing-correspondence-q90-1974x1052.jpg");
-        }
-
-        #projects:hover {
+        #journal:hover{
+        	background-image: url("https://soumya2012.files.wordpress.com/2013/03/036-letter-writing-correspondence-q90-1974x1052.jpg");
+            transition: 2s;}
+        #projects:hover{
             background-image: url("https://i0.wp.com/haulixdaily.com/wp-content/uploads/2020/03/uzi_photo_4W.jpg?fit=1200%2C800&ssl=1");
-        }
-
-        #AboutMe:hover {
-            background-image: url("https://www.atheistalliance.org/wp-content/uploads/2019/08/Soul-leaving-the-body-2100x1200.jpg");
+            transition: 2s;
+        	}
+        #AboutMe:hover{
+        	background-image: url("https://www.atheistalliance.org/wp-content/uploads/2019/08/Soul-leaving-the-body-2100x1200.jpg");
+            transition: 2s;
         }
     </style>
 </head>
-
 <body>
-    <h1 style="left: 700px; text-align: center;">
+<h1 style="left: 700px; text-align: center;">
         Hasin's Website
     </h1>
-    <center>
-        <a href="projects.html">
-            <div id="projects" class="box" style="background-image: url('https://www.rollingstone.com/wp-content/uploads/2023/06/Pink-Tape-artwork.jpeg');">
-                <div class="text">Projects</div>
-            </div>
-        </a>
+<center>
+	<a href="projects.html">
+	<div id="projects" class="box" style="background-image: url('https://www.rollingstone.com/wp-content/uploads/2023/06/Pink-Tape-artwork.jpeg');
+    background-size: cover;">
+        <div class="text">Projects</div>
+    </div>
+	</a>
 
-        <a href="journal.html">
-            <div id="journal" class="box" style="background-image: url('https://getchorus.com/wp-content/uploads/2018/08/How-To-Structure-Rap-Lyrics.jpg');">
-                <div class="text">Journal</div>
-            </div>
-        </a>
-        <a href="Aboutme.html">
-            <div id="Aboutme" class="box" style="background-image: url('https://m.media-amazon.com/images/I/71f5Npf2WtL._AC_UF894,1000_QL80_.jpg');">
-                <div class="text">About Me</div>
-            </div>
-        </a>
-    </center>
+	<a href="journal.html">
+    <div id="journal" class="box" style="background-image: url('https://getchorus.com/wp-content/uploads/2018/08/How-To-Structure-Rap-Lyrics.jpg');
+    background-size: cover;">
+        <div class="text">Journal</div>
+    </div>
+	</a>
+	<a href="Aboutme.html">
+	<div id="Aboutme" class="box" style="background-image: url('https://m.media-amazon.com/images/I/71f5Npf2WtL._AC_UF894,1000_QL80_.jpg');   
+	backgrouund-size:cover;">
+	 <div class="text">About Me</div>
+	</div>
+</a>
+</center>
 </body>
-
 </html>
