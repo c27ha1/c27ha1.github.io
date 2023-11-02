@@ -36,7 +36,6 @@
         }
 
         .box {
-            position: absolute;
             top: 150px;
             width: 425px;
             height: 300px;
@@ -44,8 +43,9 @@
             position: relative;
             display: inline-block;
             margin: 10px;
-            background-size: 100% 100%;
-            transition: background-image 2s;
+            transition: 2s;
+            background-size:100% 100%;
+            background-position:center;
         }
 
         .text {
@@ -55,17 +55,33 @@
             position: relative;
             top: 105%;
             font-size: 36px;
+
         }
 
-        #journal:hover {
-            background-image: url("https://soumya2012.files.wordpress.com/2013/03/036-letter-writing-correspondence-q90-1974x1052.jpg");
+        #journal{
+            background-image: url('https://getchorus.com/wp-content/uploads/2018/08/How-To-Structure-Rap-Lyrics.jpg'); 
         }
+        #journal:hover{
+            background-image: url(https://soumya2012.files.wordpress.com/2013/03/036-letter-writing-correspondence-q90-1974x1052.jpg);
+           
+        }
+
+        #projects{
+
+            background-image: url('https://www.rollingstone.com/wp-content/uploads/2023/06/Pink-Tape-artwork.jpeg');";
+        }
+
+        #Aboutme{
+            background-image:url('https://m.media-amazon.com/images/I/71f5Npf2WtL._AC_UF894,1000_QL80_.jpg');
+
+        }
+
 
         #projects:hover {
             background-image: url("https://i0.wp.com/haulixdaily.com/wp-content/uploads/2020/03/uzi_photo_4W.jpg?fit=1200%2C800&ssl=1");
         }
 
-        #AboutMe:hover {
+        #Aboutme:hover {
             background-image: url("https://www.atheistalliance.org/wp-content/uploads/2019/08/Soul-leaving-the-body-2100x1200.jpg");
         }
     </style>
@@ -77,18 +93,18 @@
     </h1>
     <center>
         <a href="projects.html">
-            <div id="projects" class="box" style="background-image: url('https://www.rollingstone.com/wp-content/uploads/2023/06/Pink-Tape-artwork.jpeg');">
+            <div id="projects" class="box">
                 <div class="text">Projects</div>
             </div>
         </a>
 
         <a href="journal.html">
-            <div id="journal" class="box" style="background-image: url('https://getchorus.com/wp-content/uploads/2018/08/How-To-Structure-Rap-Lyrics.jpg');">
+            <div id="journal" class="box" >
                 <div class="text">Journal</div>
             </div>
         </a>
         <a href="Aboutme.html">
-            <div id="Aboutme" class="box" style="background-image: url('https://m.media-amazon.com/images/I/71f5Npf2WtL._AC_UF894,1000_QL80_.jpg');">
+            <div id="Aboutme" class="box" >
                 <div class="text">About Me</div>
             </div>
         </a>
