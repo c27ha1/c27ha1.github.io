@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+  var audioElement = new Audio(); // Create an audio element
+
+  function cheesefries() {
+    var cheese = document.createElement("div");
+    document.body.appendChild(cheese);
+    cheese.style.width = "200px";
+    cheese.style.height = "200px";
+    cheese.style.backgroundImage = "url(https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F05%2Flil-uzi-vert-playboi-carti-a-trak-show-000.jpg?w=960&cbr=1&q=90&fit=max)";
+    cheese.style.backgroundSize = "contain";
+    cheese.style.backgroundRepeat = "no-repeat";
+    cheese.style.display = "inline-block";
+
+    cheese.addEventListener("mouseover", function() {
+      cheese.style.backgroundImage = "url(https://img.buzzfeed.com/buzzfeed-static/complex/images/Y19jcm9wLGhfMTA3OSx3XzE4NTMseF8wLHlfMA==/epdpgf8hzri7xbkcr3pr/lil-uzi-vert-playboi-carti-getty-bennett-raglin2.jpg?output-format=jpg&output-quality=auto)";
+      audioElement.src = "uzi x carti.mp3";
+      audioElement.play();
+    });
+  }
+
+  setInterval(cheesefries, 36);
+
+</script>
+
+</body>
+</html>
