@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <title></title>
+</head>
+
+<body>
+    <style type="text/css">
+        h1 {
+            color: black;
+            font-family: 'Lobster';
+            position: fixed;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            font-size: 60px;
+        }
+
+        #PizzaBagels img {
+            width: 500px;
+            height: 650px;
+            display: block;
+            margin: 0 auto;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    </style>
+
+    <script type="text/javascript">
+        let clickcount = 0;
+        document.addEventListener("click", (event) => {
+            const PizzaBagelsImg = document.querySelector("#PizzaBagels img");
+
+            if (clickcount === 19) {
+                // Reset click count after the last image
+                clickcount = 0;
+            }
+
+            if (clickcount === 0) {
+                PizzaBagelsImg.style.opacity = "1";
+            } else if (clickcount === 1) {
+                PizzaBagelsImg.src = 'IMG_2471.jpeg';
+                PizzaBagelsImg.style.opacity = "1";
+            } else if (clickcount === 2) {
+                PizzaBagelsImg.src = 'IMG_2606.jpeg';
+            } else if (clickcount === 3) {
+                PizzaBagelsImg.src = "IMG_3871.jpeg";
+                PizzaBagelsImg.style.width = "800px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.position = "absolute";
+                PizzaBagelsImg.style.left = "-100px";
+            } else if (clickcount === 4) {
+                PizzaBagelsImg.src = "1000006461.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-10px";
+            } else if (clickcount === 5) {
+                PizzaBagelsImg.src = "IMG_2605.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 6) {
+                PizzaBagelsImg.src = "IMG_5343.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 7) {
+                PizzaBagelsImg.src = "6267.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 8) {
+                PizzaBagelsImg.src = "1000006535.jpeg";
+                PizzaBagelsImg.style.width = "700px";
+                PizzaBagelsImg.style.left = "-100px";
+            } else if (clickcount === 9) {
+                PizzaBagelsImg.src = "1000009312.jpeg";
+            } else if (clickcount === 10) {
+                PizzaBagelsImg.src = "IMG_7588.jpg";
+            } else if (clickcount === 11) {
+                PizzaBagelsImg.src = "IMG_4724.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 12) {
+                PizzaBagelsImg.src = "unnamed.jpg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 13) {
+                PizzaBagelsImg.src = "1000009716.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 14) {
+                PizzaBagelsImg.src = "lp_image.jpeg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 15) {
+                PizzaBagelsImg.src = "IMG_5237.jpg";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            } else if (clickcount === 16) {
+                PizzaBagelsImg.src = "10914.JPEG";
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            }
+
+            else if (clickcount ===17) {
+                PizzaBagelsImg.src = "10914.JPEG"
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+            }
+
+            else if(clickcount === 18){
+                PizzaBagelsImg.src = "4831.JPEG"
+                PizzaBagelsImg.style.width = "600px";
+                PizzaBagelsImg.style.height = "650px";
+                PizzaBagelsImg.style.left = "-20px";
+
+            }
+
+            clickcount++;
+        });
+    </script>
+
+    <div id="PizzaBagels" style="position: absolute; top: 130px; left: 450px;">
+        <h1>We love Pizza Bagels 😍</h1>
+        <img src="IMG_2471.jpeg" alt="Pizza Bagels Image">
+    </div>
+</body>
+
+</html>
