@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        .bball {
+            width: 300px;
+            height: 200px;
+            background-image: url("https://townsquare.media/site/812/files/2016/07/Behind-the-Scene-Photos-From-the-2016-XXL-Freshman-Shoot-21.jpg?w=980&q=75");
+            background-size: contain;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="bball"></div>
+    <script type="text/javascript">
+        function dribble() {
+        	//this make a variable that points to a div. The function "createElements" puts angle brckets around whatever you give it. An element is just something in html that is in the body.
+            var ball = document.createElement("div");
+            document.body.appendChild(ball);
+            ball.classList.add("bball");
+            
+            ball.addEventListener("mouseover", function() {
+                audioElement.src = "uzi x carti.mp3";
+                audioElement.play();
+            });
+        }
+
+        for (var counter = 0; counter<1030; counter = counter + 10) {
+            dribble(counter);
+        }
+
+        var audioElement = new Audio(); // Create the audio element
+    </script>
+</body>
+</html>

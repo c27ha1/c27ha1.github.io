@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <style type="text/css">
+        #tierlist {
+            position: fixed;
+            height: 800px;
+            width: 1000px; 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("https://i.pinimg.com/originals/35/3c/f7/353cf715eb12a32cd5ee3084eba7a4e6.png");
+            right: 400px;
+
+        }
+
+        .food {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        	position: relative;
+            
+        }
+
+        #pinktape {
+            background-color: purple;
+            background-image: url("Lil-Uzi-Vert-Pink-Tape.webp");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:100px;
+
+        }
+
+        #utopia {
+            background-color: blue;
+            background-image: url(utopiuh.jpeg);
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+             top:100px;
+
+        }
+
+        #barter6 {
+            background-color: red;
+            background-image: url("barter6.jpeg");
+            background-size: cover;
+            position: fixed;
+            left: 1260px;
+            top:100px;
+
+        }
+
+        #pinkfriday2 {
+            background-color: red;
+            background-image: url("pinkfriday2.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:200px;
+        }
+
+        #fatd {
+            background-color: red;
+            background-image: url("fotd.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:200px;
+        }
+
+        #luvisrage2 {
+            background-color: red;
+            background-image: url("luvisrage2.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1260px;
+            top:200px;
+        }
+
+        #thacarter4 {
+            background-color: red;
+            background-image: url("thacarter4.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:300px;
+        }
+
+        #thacarter5 {
+            background-color: red;
+            background-image: url("thacarter5.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:300px;
+        }
+
+        #astroworld {
+            background-color: red;
+            background-image: url("astrowrld.webp");
+            background-size: cover; 
+            background-repeat: no-repeat;
+            position: fixed;
+            left: 1260px;
+            top:300px;
+        }
+
+        #agc {
+            background-color: red;
+            background-image: url("agc.jpeg");
+            background-size: cover;
+            position: fixed;
+            left: 1060px;
+            top:400px;
+        }
+
+        #dielit {
+            background-color: red;
+            background-image: url("dielit.jpg");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:400px;
+        }
+
+        #tec {
+            background-color: red;
+            background-image: url("tec.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1260px;
+            top:400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tierlist"></div>
+    <div id="pinktape" class="food"></div>
+    <div id="utopia" class="food"></div>
+    <div id="barter6" class="food"></div>
+    <div id="pinkfriday2" class="food"></div>
+    <div id="fatd" class="food"></div>
+    <div id="luvisrage2" class="food"></div>
+    <div id="thacarter4" class="food"></div>
+    <div id="thacarter5" class="food"></div>
+    <div id="astroworld" class="food"></div>
+    <div id="agc" class="food"></div>
+    <div id="dielit" class="food"></div>
+    <div id="tec" class="food"></div>
+
+    <script type="text/javascript">
+    	    var image;
+            var x;
+            var y;
+
+
+
+            function makeTape() {
+                pinktape.style.position = "absolute"
+                pinktape.style.left = x+"px";
+                pinktape.style.top = y+"px";
+                
+            }
+
+
+            document.addEventListener("mousemove", function(event){
+                x = event.clientX
+                y = event.clientY
+                console.log(x, y)
+
+            }) 
+
+
+            pinktape.addEventListener("click", function(){
+                document.addEventListener("click", maketape)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", maketape)
+        })
+
+         function makeutopia() {
+                utopia.style.position = "absolute"
+                utopia.style.left = x+"px";
+                utopia.style.top = y+"px";
+                
+            }
+
+
+            document.addEventListener("mousemove", function(event){
+                x = event.clientX
+                y = event.clientY
+                console.log(x, y)
+
+            }) 
+
+
+            utopia.addEventListener("click", function(){
+                document.addEventListener("click", makeutopia)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makeutopia)
+        })
+
+        function makebarter6() {
+                barter6.style.position = "absolute"
+                barter6.style.left = x+"px";
+                barter6.style.top = y+"px";
+                
+            }
+
+
+        barter6.addEventListener("click", function(){
+                document.addEventListener("click", makebarter6)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makebarter6)
+        })
+
+        function makepinkfriday2() {
+                pinkfriday2.style.position = "absolute"
+                pinkfriday2.style.left = x+"px";
+                pinkfriday2.style.top = y+"px";
+                
+            }
+
+
+        pinkfriday2.addEventListener("click", function(){
+                document.addEventListener("click", makepinkfriday2)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makepinkfriday2)
+        })
+
+        function makefatd() {
+                fatd.style.position = "absolute"
+                fatd.style.left = x+"px";
+                fatd.style.top = y+"px";
+                
+            }
+
+
+        fatd.addEventListener("click", function(){
+                document.addEventListener("click", makefatd)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makefatd)
+        })
+
+        function makeluvisrage2() {
+                luvisrage2.style.position = "absolute"
+                luvisrage2.style.left = x+"px";
+                luvisrage2.style.top = y+"px";
+                
+            }
+
+
+        luvisrage2.addEventListener("click", function(){
+                document.addEventListener("click", makeluvisrage2)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makeluvisrage2)
+        })
+
+        function makethacarter4() {
+                thacarter4.style.position = "absolute"
+                thacarter4.style.left = x+"px";
+                thacarter4.style.top = y+"px";
+                
+            }
+
+
+        thacarter4.addEventListener("click", function(){
+                document.addEventListener("click", makethacarter4)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makethacarter4)
+        })
+
+        function makethacarter5() {
+                thacarter5.style.position = "absolute"
+                thacarter5.style.left = x+"px";
+                thacarter5.style.top = y+"px";
+                
+            }
+
+
+        thacarter5.addEventListener("click", function(){
+                document.addEventListener("click", makethacarter5)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makethacarter5)
+        })
+
+        function makeastroworld() {
+                astroworld.style.position = "absolute"
+                astroworld.style.left = x+"px";
+                astroworld.style.top = y+"px";
+                
+            }
+
+
+        astroworld.addEventListener("click", function(){
+                document.addEventListener("click", makeastroworld)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makeastroworld)
+        })
+
+        function makeagc() {
+                agc.style.position = "absolute"
+                agc.style.left = x+"px";
+                agc.style.top = y+"px";
+                
+            }
+
+
+        agc.addEventListener("click", function(){
+                document.addEventListener("click", makeagc)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makeagc)
+        })
+
+        function makedielit() {
+                dielit.style.position = "absolute"
+                dielit.style.left = x+"px";
+                dielit.style.top = y+"px";
+                
+            }
+
+
+        dielit.addEventListener("click", function(){
+                document.addEventListener("click", makedielit)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", makedielit)
+        })
+
+        function maketec() {
+                tec.style.position = "absolute"
+                tec.style.left = x+"px";
+                tec.style.top = y+"px";
+                
+            }
+
+
+        tec.addEventListener("click", function(){
+                document.addEventListener("click", maketec)}
+
+        )
+
+
+        tierlist.addEventListener("click", function(){
+            document.removeEventListener("click", maketec)
+        })
+
+
+
+            
+
+
+
+
+            //tierlist.addEventListener("mousemove", function (event) {
+               // console.log(event);
+                //makeTape(image); 
+                //document.body.appendChild(pinktape);
+           		//pinktape.style.left =   event.clientX - 25 + "px";
+        		//pinktape.style.top = event.clientY - 25 + "px";
+
+    //        });
+
+          // plate.appendChild(pinktape);
+
+
+            pinktape.addEventListener("click", function () {
+                image ="Lil-Uzi-Vert-Pink-Tape.webp"
+                
+            });
+
+            utopia.addEventListener("click", function () {
+                image = "utopiuh.jpeg"
+                
+
+            });
+
+           barter6.addEventListener("click", function () {
+                image ="barter6.jpeg"
+            });
+
+           pinkfriday2.addEventListener("click", function () {
+                image ="pinkfriday2.jpeg"
+
+            });
+
+           fatd.addEventListener("click", function () {
+                image ="fotd.png"
+
+            });
+
+           tec.addEventListener("click", function () {
+                image ="tec.jpeg"
+
+            });
+
+           agc.addEventListener("click", function () {
+                image ="agc.jpeg"
+
+            });
+
+           luvisrage2.addEventListener("click", function () {
+                image ="luvisrage2.png"
+
+            });
+
+           astroworld.addEventListener("click", function () {
+                image ="astrowrld.webp"
+
+            });
+
+           dielit.addEventListener("click", function () {
+                image ="dielit.jpg"
+
+            });
+
+           thacarter4.addEventListener("click", function () {
+                image ="thacarter4.png"
+
+            });
+
+           thacarter5.addEventListener("click", function () {
+                image ="thacarter5.jpeg"
+
+            });
+
+           tierlist.addEventListener("click", makeTape);
+
+
+
+       
+    </script>
+</body>
+
+</html>

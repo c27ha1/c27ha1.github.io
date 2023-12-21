@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		#hasin{
+			width:100px;
+			height:100px;
+			background-color:purple;
+		}
+
+		#molly{
+			width:100px;
+			height:100px;
+			background-color:blue;
+
+		}
+	</style>
+</head>
+<body>
+
+
+	<div id='hasin'></div>
+
+<div id="molly"></div>
+<script type="text/javascript">
+	function sayhi(){
+		console.log("hello?")
+	
+	}
+
+
+	hasin.addEventListener("click", sayhi)
+
+	molly.addEventListener("click", function(){
+		console.log("bye bye")
+		hasin.removeEventListener("click", sayhi)
+	})
+</script>
+
+</body>
+</html>

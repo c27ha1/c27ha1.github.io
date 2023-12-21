@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <style type="text/css">
+        #plate {
+            position: fixed;
+            height: 800px;
+            width: 1000px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("https://i.pinimg.com/originals/35/3c/f7/353cf715eb12a32cd5ee3084eba7a4e6.png");
+            right: 400px;
+        }
+
+        .food {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .album-cover {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: none; /* initially hide */
+            position: absolute;
+        }
+
+        #pinktape {
+            background-color: purple;
+            background-image: url("Lil-Uzi-Vert-Pink-Tape.webp");
+        }
+
+        #utopia {
+            background-color: blue;
+            background-image: url(utopiuh.jpeg);
+        }
+
+        #barter6 {
+            background-color: red;
+            background-image: url("barter6.jpeg");
+        }
+
+        #pinkfriday2 {
+            background-color: red;
+            background-image: url("pinkfriday2.jpeg");
+        }
+
+        #fatd {
+            background-color: red;
+            background-image: url("fotd.png");
+        }
+
+        #luvisrage2 {
+            background-color: red;
+            background-image: url("luvisrage2.png");
+        }
+
+        #thacarter4 {
+            background-color: red;
+            background-image: url("thacarter4.png");
+        }
+
+        #thacarter5 {
+            background-color: red;
+            background-image: url("thacarter5.jpeg");
+        }
+
+        #astroworld {
+            background-color: red;
+            background-image: url("astrowrld.webp");
+        }
+
+        #agc {
+            background-color: red;
+            background-image: url("agc.jpeg");
+        }
+
+        #dielit {
+            background-color: red;
+            background-image: url("dielit.jpg");
+        }
+
+        #tec {
+            background-color: red;
+            background-image: url("tec.jpeg");
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="plate"></div>
+    <div id="pinktape" class="food"></div>
+    <div id="utopia" class="food"></div>
+    <div id="barter6" class="food"></div>
+    <div id="pinkfriday2" class="food"></div>
+    <div id="fatd" class="food"></div>
+    <div id="luvisrage2" class="food"></div>
+    <div id="thacarter4" class="food"></div>
+    <div id="thacarter5" class="food"></div>
+    <div id="astroworld" class="food"></div>
+    <div id="agc" class="food"></div>
+    <div id="dielit" class="food"></div>
+    <div id="tec" class="food"></div>
+
+    <script type="text/javascript">
+        var image;
+        var currentAlbumCover;
+
+        function makeTape(image) {
+            var albumCover = document.createElement("div");
+            albumCover.classList.add("album-cover");
+            albumCover.style.backgroundImage = "url(" + image + ")";
+            document.body.appendChild(albumCover);
+            return albumCover;
+        }
+
+        var plate = document.getElementById("plate");
+
+        plate.addEventListener("mousemove", function (event) {
+            if (currentAlbumCover) {
+                currentAlbumCover.style.left = event.clientX - 50 + "px";
+                currentAlbumCover.style.top = event.clientY - 50 + "px";
+            }
+        });
+
+        function handleAlbumClick(albumId, albumImage) {
+            if (currentAlbumCover) {
+                currentAlbumCover.style.display = "none";
+            }
+            image = albumImage;
+            currentAlbumCover = makeTape(image);
+            currentAlbumCover.style.left = event.clientX - 50 + "px";
+            currentAlbumCover.style.top = event.clientY - 50 + "px";
+            currentAlbumCover.style.display = "block";
+        }
+
+        pinktape.addEventListener("click", function () {
+            handleAlbumClick("pinktape", "Lil-Uzi-Vert-Pink-Tape.webp");
+        });
+
+        utopia.addEventListener("click", function () {
+            handleAlbumClick("utopia", "utopiuh.jpeg");
+        });
+
+        barter6.addEventListener("click", function () {
+            handleAlbumClick("barter6", "barter6.jpeg");
+        });
+
+        pinkfriday2.addEventListener("click", function () {
+            handleAlbumClick("pinkfriday2", "pinkfriday2.jpeg");
+        });
+
+        fatd.addEventListener("click", function () {
+            handleAlbumClick("fatd", "fotd.png");
+        });
+
+        tec.addEventListener("click", function () {
+            handleAlbumClick("tec", "tec.jpeg");
+        });
+
+        agc.addEventListener("click", function () {
+            handleAlbumClick("agc", "agc.jpeg");
+        });
+
+        luvisrage2.addEventListener("click", function () {
+            handleAlbumClick("luvisrage2", "luvisrage2.png");
+        });
+
+        astroworld.addEventListener("click", function () {
+            handleAlbumClick("astroworld", "astrowrld.webp");
+        });
+
+        dielit.addEventListener("click", function () {
+            handleAlbumClick("dielit", "dielit.jpg");
+        });
+
+        thacarter4.addEventListener("click", function () {
+            handleAlbumClick("thacarter4", "thacarter4.png");
+        });
+
+        thacarter5.addEventListener("click", function () {
+            handleAlbumClick("thacarter5", "thacarter5.jpeg");
+        });
+    </script>
+</body>
+
+</html>

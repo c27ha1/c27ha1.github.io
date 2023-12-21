@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <style type="text/css">
+        #tierlist {
+            position: fixed;
+            height: 800px;
+            width: 1000px; 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("https://i.pinimg.com/originals/35/3c/f7/353cf715eb12a32cd5ee3084eba7a4e6.png");
+            right: 400px;
+
+        }
+
+        .food {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        	position: relative;
+            
+        }
+
+        #pinktape {
+            background-color: purple;
+            background-image: url("Lil-Uzi-Vert-Pink-Tape.webp");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:100px;
+
+        }
+
+        #utopia {
+            background-color: blue;
+            background-image: url(utopiuh.jpeg);
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+             top:100px;
+
+        }
+
+        #barter6 {
+            background-color: red;
+            background-image: url("barter6.jpeg");
+            background-size: cover;
+            position: fixed;
+            left: 1260px;
+            top:100px;
+
+        }
+
+        #pinkfriday2 {
+            background-color: red;
+            background-image: url("pinkfriday2.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:200px;
+        }
+
+        #fatd {
+            background-color: red;
+            background-image: url("fotd.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:200px;
+        }
+
+        #luvisrage2 {
+            background-color: red;
+            background-image: url("luvisrage2.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1260px;
+            top:200px;
+        }
+
+        #thacarter4 {
+            background-color: red;
+            background-image: url("thacarter4.png");
+            background-size: cover; 
+            position: fixed;
+            left: 1060px;
+            top:300px;
+        }
+
+        #thacarter5 {
+            background-color: red;
+            background-image: url("thacarter5.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:300px;
+        }
+
+        #astroworld {
+            background-color: red;
+            background-image: url("astrowrld.webp");
+            background-size: cover; 
+            background-repeat: no-repeat;
+            position: fixed;
+            left: 1260px;
+            top:300px;
+        }
+
+        #agc {
+            background-color: red;
+            background-image: url("agc.jpeg");
+            background-size: cover;
+            position: fixed;
+            left: 1060px;
+            top:400px;
+        }
+
+        #dielit {
+            background-color: red;
+            background-image: url("dielit.jpg");
+            background-size: cover; 
+            position: fixed;
+            left: 1160px;
+            top:400px;
+        }
+
+        #tec {
+            background-color: red;
+            background-image: url("tec.jpeg");
+            background-size: cover; 
+            position: fixed;
+            left: 1260px;
+            top:400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tierlist"></div>
+    <div id="pinktape" class="food"></div>
+    <div id="utopia" class="food"></div>
+    <div id="barter6" class="food"></div>
+    <div id="pinkfriday2" class="food"></div>
+    <div id="fatd" class="food"></div>
+    <div id="luvisrage2" class="food"></div>
+    <div id="thacarter4" class="food"></div>
+    <div id="thacarter5" class="food"></div>
+    <div id="astroworld" class="food"></div>
+    <div id="agc" class="food"></div>
+    <div id="dielit" class="food"></div>
+    <div id="tec" class="food"></div>
+
+    <script type="text/javascript">
+    	    var image;
+
+            var pinktape=document.createElement("div"); 
+
+            function makeTape() {
+            	
+                pinktape.style.width = "100px";
+                pinktape.style.height = "100px";
+                pinktape.style.borderRadius = "0%";
+                pinktape.style.position = "absolute";
+                pinktape.style.backgroundImage = "url(" + image + ")";
+                pinktape.style.backgroundSize = "cover";
+                
+            }
+
+            //var tierlist = document.getElementById("tierlist");
+                luvisrage2.addEventListener("click", function (){
+                luvisrage2.style.position = "absolute"
+                document.addEventListener("mousemove", function tierlistFollowMouse (event)
+                    {luvisrage2.style.left = event.clientX+"px";
+                    luvisrage2.style.top=event.clientY+"px";
+
+                })
+
+                })
+
+                
+
+
+                
+        
+          
+
+          // plate.appendChild(pinktape);
+
+
+            pinktape.addEventListener("click", function () {
+                image ="Lil-Uzi-Vert-Pink-Tape.webp"
+                console.log(image)
+                makeTape()
+            });
+
+            utopia.addEventListener("click", function () {
+                image = "utopiuh.jpeg"
+            });
+
+           barter6.addEventListener("click", function () {
+                image ="barter6.jpeg"
+            });
+
+           pinkfriday2.addEventListener("click", function () {
+                image ="pinkfriday2.jpeg"
+
+            });
+
+           fatd.addEventListener("click", function () {
+                image ="fotd.png"
+
+            });
+
+           tec.addEventListener("click", function () {
+                image ="tec.jpeg"
+
+            });
+
+           agc.addEventListener("click", function () {
+                image ="agc.jpeg"
+
+            });
+
+           luvisrage2.addEventListener("click", function () {
+                image ="luvisrage2.png"
+
+            });
+
+           astroworld.addEventListener("click", function () {
+                image ="astrowrld.webp"
+
+            });
+
+           dielit.addEventListener("click", function () {
+                image ="dielit.jpg"
+
+            });
+
+           thacarter4.addEventListener("click", function () {
+                image ="thacarter4.png"
+
+            });
+
+           thacarter5.addEventListener("click", function () {
+                image ="thacarter5.jpeg"
+
+            });
+
+           tierlist.addEventListener("click", makeTape);
+
+
+
+       
+    </script>
+</body>
+
+</html>
