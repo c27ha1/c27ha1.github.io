@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
 </head>
 <body>
+    <style type="text/css">
+    #Song {
+        width:700px;
+        height:700px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-content: center;
 
-	<script type="text/javascript">
-		
-		var NinjagoCharacters = ["Kai","Jay", " Cole", "Zane", "Lloyd","Nya", "Wu", "P.I.X.A.L.", "Lord Garmadon"
+    </style>
 
-			]
-		
-		document.addEventListener("click",function(){
-			var x = Math.round(Math.random()*8);
-			console.log(NinjagoCharacters[x])
+    <div id="Song" onclick="playRandomAudio()" style="position: absolute;left:400px";></div>
 
-		})
+    <script type="text/javascript">
 
+        var currentlyPlayingAudio = null;
 
+        var Songs = ["The End", "Never Left", "Red Moon", "BbyCakes", "Dancin", "My Eyes", "Used2This", "Dime", "For fun", "Everbody"];
 
-	</script>
+        var audioarray = ["TheEnd.mp3", "NeverLeft.mp3", "RedMoon.mp3", "Bbycakes.mp3", "Dancin.mp3", "MyEyes.mp3", "Used2This.mp3", "Dime.mp3", "ForFun.mp3", "EveryBody.mp3"];
+
+        var imagearray = ["TheEnd.jpeg", "Nevertleft.jpeg", "RedMoon.jpeg", "BbyCakes.jpeg", "Dancin.jpeg", "Utopia.png", "used2this.jpeg", "dime.jpeg", "forfun.jpeg", "pinkfriday2.jpeg"];
+
+        function playRandomAudio() {
+            if (currentlyPlayingAudio) {
+                currentlyPlayingAudio.pause();
+            }
+
+            const audioIndex = Math.floor(Math.random() * audioarray.length);
+            const audio = new Audio(audioarray[audioIndex]);
+            audio.play();
+
+            // Set background image corresponding to the played song
+            document.getElementById("Song").style.backgroundImage = "url('" + imagearray[audioIndex] + "')";
+
+            currentlyPlayingAudio = audio;
+        }
+
+    </script>
 
 </body>
 </html>
