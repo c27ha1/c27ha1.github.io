@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #FF69B4;
+        }
+        #love-score {
+            font-size: 24px;
+            color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Love Calculator</h1>
+    <form id="love-form">
+        <label for="name1">Enter your name:</label>
+        <input type="text" id="name1" name="name1" required><br><br>
+        <label for="name2">Enter your partner's name:</label>
+        <input type="text" id="name2" name="name2" required><br><br>
+        <button type="button" onclick="calculateLove()">Calculate Love</button>
+    </form>
+    <div id="love-score"></div>
+
+    <script>
+        function calculateLove() {
+            var name1 = document.getElementById("name1").value.trim().toLowerCase();
+            var name2 = document.getElementById("name2").value.trim().toLowerCase();
+            var combinedNames = name1 + name2;
+            var loveScore = 0;
+
+            for (var i = 0; i < combinedNames.length; i++) {
+                var char = combinedNames[i];
+                if (char === 't' || char === 'r' || char === 'u' || char === 'e') {
+                    loveScore += 3;
+                } else if (char === 'l' || char === 'o' || char === 'v' || char === 'e') {
+                    loveScore += 2;
+                } else if (char === 'f' || char === 'r' || char === 'i' || char === 'e' || char === 'n' || char === 'd' || char === 's' || char === 'h' || char === 'i' || char === 'p') {
+                    loveScore += 1;
+                }
+            }
+
+            loveScore = Math.min(loveScore, 100);
+
+            document.getElementById("love-score").innerHTML = "The love score between " + name1 + " and " + name2 + " is " + loveScore + "%.";
+        }
+    </script>
+</body>
+</html>
