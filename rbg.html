@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Background Color</title>
+
+    <style type="text/css">
+        body {
+            background-color: rgb(250, 10, 40);
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function changeBackgroundColor(event) {
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+            
+            // Normalize mouse coordinates to range [0, 255]
+            var red = Math.floor((mouseX / window.innerWidth) * 255);
+            var green = Math.floor((mouseY / window.innerHeight) * 255);
+            var blue = Math.floor(Math.random() * 256); // Randomize blue component
+            
+            var randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        document.addEventListener("mousemove", changeBackgroundColor);
+    </script>
+
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+</body>
+</html>
