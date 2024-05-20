@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Network Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <svg width="800" height="600"></svg>
+
+  <script>
+    // Sample data (Lil Uzi Vert songs and their featured artists)
+    const lilUziSongs = {
+      "XO Tour Llif3": ["The Weeknd"],
+      "Money Longer": ["Playboi Carti"],
+      "Sanguine Paradise": ["Future"],
+      "That Way": ["Gunna"],
+      "New Patek": ["Nicki Minaj"]
+    };
+
+    const nodes = [];
+    const links = [];
+
+    // Add Lil Uzi Vert as a central node
+    nodes.push({ id: "Lil Uzi Vert" });
+
+    // Add Lil Uzi Vert's featured artists as nodes and links
+    Object.entries(lilUziSongs).forEach(([song, artists]) => {
+      artists.forEach(artist => {
+        const existingNode = nodes.find(node => node.id === artist);
+        if (!existingNode) {
+          nodes.push({ id: artist });
+        }
+        links.push({ source: "Lil Uzi Vert", target: artist, song: song });
+      });
+    });
+
+    const svg = d3.select("svg");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-200))
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+    const link = svg.selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("stroke", "#999")
+        .attr("stroke-opacity", 0.6)
+        .attr("stroke-width", d => Math.sqrt(d.value));
+
+    const node = svg.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("r", 8)
+        .attr("fill", "#1f77b4")
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+    node.append("title")
+        .text(d => d.id);
+
+    simulation.on("tick", () => {
+      link
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+      node
+          .attr("cx", d => d.x)
+          .attr("cy", d => d.y);
+    });
+
+    function dragstarted(event) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      event.subject.fx = event.subject.x;
+      event.subject.fy = event.subject.y;
+    }
+
+    function dragged(event) {
+      event.subject.fx = event.x;
+      event.subject.fy = event.y;
+    }
+
+    function dragended(event) {
+      if (!event.active) simulation.alphaTarget(0);
+      event.subject.fx = null;
+      event.subject.fy = null;
+    }
+  </script>
+</body>
+</html>

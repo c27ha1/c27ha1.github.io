@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Tiles Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 975px;
+            background-color: #282c34;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            border: 2px solid #fff;
+            overflow: hidden;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            position: relative;
+        }
+        .tile {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            background-color: blue;
+            top: -100px; /* Start position above the container */
+        }
+        .hit-area {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            border-top: 2px solid yellow;
+            box-sizing: border-box;
+        }
+        .score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .message {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            display: none;
+        }
+        .stats {
+           left: 80px;
+           display: none;
+           top: 10%;
+            right: 1%;
+        }
+        .instructions {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+        #startButton {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        @keyframes moveDown {
+            0% { top: -100px; }
+            100% { top: 500px; } /* End position just below the container */
+        }
+    </style>
+</head>
+<body>
+    <button id="startButton">Start Game</button>
+    <div class="game-container" id="gameContainer" style="display: none;">
+        <div class="column" data-key="A">
+            <div class="hit-area"></div>
+        </div>
+        <div class="column" data-key="S">
+            <div class="hit-area"></div>
+        </div>
+        <div class="column" data-key="D">
+            <div class="hit-area"></div>
+        </div>
+        <div class="column" data-key="F">
+            <div class="hit-area"></div>
+        </div>
+        <div class="score">
+            Score: <span id="score">0</span>
+        </div>
+        <div class="instructions">
+            Use "A", "S", "D", and "F" keys to play
+        </div>
+    </div>
+
+    
+        <div class="stats" id="message2">
+            Astroworld!!! 1050 minutes
+            <ol>
+                <li>Sicko Mode - 252 minutes (61 streams)</li>
+                <li>Coffee Bean - 141 minutes (42 streams)</li>
+                <li>Can't Say - 87 minutes (32 streams)</li>
+                <li>No Bystanders - 73 minutes (29 streams)</li>
+                <li>Stargazing - 64 minutes (16 streams)</li>
+            </ol>
+        </div>
+
+    <div class="message" id="message">Game Over! Your final score is <span id="finalScore">0</span>.</div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" src="sickomode.mp3"></audio>
+
+    <script>
+        let score = 0;
+        let hasReachedScore = false;
+        let isGameOver = false;
+        let gameInterval;
+
+        document.getElementById('startButton').addEventListener('click', startGame);
+
+        document.addEventListener('keydown', function(event) {
+            if (isGameOver) return; // If game is already over, do nothing
+            let key = event.key.toUpperCase();
+            let column = document.querySelector(`.column[data-key="${key}"]`);
+            if (column) {
+                let tile = column.querySelector('.tile');
+                if (tile) {
+                    let tileRect = tile.getBoundingClientRect();
+                    let hitArea = column.querySelector('.hit-area');
+                    let hitAreaRect = hitArea.getBoundingClientRect();
+
+                    if (tileRect.bottom >= hitAreaRect.top && tileRect.top <= hitAreaRect.bottom) {
+                        score++;
+                        document.getElementById('score').innerText = score;
+                        tile.remove();
+
+                        if (score >= 30 && !hasReachedScore) {
+                            playMusic();
+                            showMessage();
+                            hasReachedScore = true;
+                        }
+                    } else {
+                        endGame();
+                    }
+                }
+            }
+        });
+
+        function playMusic() {
+            let music = document.getElementById('backgroundMusic');
+            music.play();
+        }
+
+        function showMessage() {
+            let message = document.getElementById('message2');
+            message.style.display = 'block';
+        }
+
+        function createTile() {
+            if (isGameOver) return; // If game is already over, do nothing
+            let columns = document.querySelectorAll('.column');
+            let randomColumn = columns[Math.floor(Math.random() * columns.length)];
+            let tile = document.createElement('div');
+            tile.classList.add('tile');
+            randomColumn.appendChild(tile);
+
+            // Add animation to the tile
+            tile.style.animation = 'moveDown 2s linear forwards'; // Decreased the animation duration to make tiles come faster
+
+            // Remove tile after animation ends
+            tile.addEventListener('animationend', () => {
+                if (!isGameOver) {
+                    tile.remove();
+                    endGame();
+                }
+            });
+        }
+
+        function startGame() {
+            score = 0;
+            hasReachedScore = false;
+            isGameOver = false;
+            document.getElementById('score').innerText = score;
+            document.getElementById('message').style.display = 'none';
+            document.getElementById('message2').style.display = 'none';
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'flex';
+            gameInterval = setInterval(createTile, Math.random() * 1000 + 300); // Decreased the interval to make tiles come faster
+        }
+
+        function endGame() {
+            isGameOver = true;
+            clearInterval(gameInterval);
+            let finalScoreElement = document.getElementById('finalScore');
+            finalScoreElement.innerText = score;
+            let message = document.getElementById('message');
+            message.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+    .container {
+        width: 80%;
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        color: #ff4d4d;  
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 18px;
+        color: #ff4d4d; 
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 2px solid #ffcccc; 
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: mediumpurple; 
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ff6666; /* Lighter red on hover */
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #ff4d4d; /* Red */
+        font-weight: bold;
+    }
+
+    body {
+        background-image: url("https://i.redd.it/0e4i0a5darl41.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        background-color: #ffe6e6; /* Light pink */
+        margin: 0;
+        padding: 0;
+    }
+
+    #textContainer {
+        display: none;
+        font-size: 60px;
+        color: gold;
+        font-weight: bold;
+        top: 50%;
+        left: 50%;
+        transform: translate(25%,200%);
+    }
+    </style>
+    <title></title>
+</head>
+<body>
+    <audio id="audioElement" src=""></audio>
+    <div id="textContainer" style="">Eternal Atake, 7974 Minutes!</div>
+
+    <div class="container">
+        <form id="UziForm">
+            <input type="text" id="firstName" placeholder="Best Rapper">
+            <input type="submit" value="Calculate">
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script type="text/javascript">
+        var enteredNames = [];
+
+        document.getElementById('UziForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var rapper = document.getElementById('firstName').value;
+            var result = "";
+
+            if (rapper.toLowerCase() === "lil uzi vert") {
+                result = "You are right"; 
+                const audioElement = document.querySelector("#audioElement") 
+                const textContainer = document.querySelector("#textContainer");
+
+                audioElement.src = "Yeah!.mp4";
+                textContainer.style.display = "block";
+                audioElement.play();
+            } else {
+                result = "You are wrong!"; 
+            }
+
+            enteredNames.push(rapper);
+
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>

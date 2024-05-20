@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Calculator </title>
+<style>
+
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    h7{
+        color: deeppink;
+
+    }
+    input[type="text"], input[type="submit"] {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .result {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+
+<style type="text/css">
+	
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6e6; /* Light pink */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #ff4d4d;  
+}
+
+
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    color: #ff4d4d; 
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ffcccc; 
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ff4d4d; 
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6666; /* Lighter red on hover */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff4d4d; /* Red */
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Love Calculator (Valentines day edition)😍</h1>
+    <form id="loveCalculatorForm">
+        <input type="text" id="firstName" placeholder="Your Name">
+        <input type="text" id="secondName" placeholder="Partner's Name">
+        <input type="submit" value="Calculate">
+    </form>
+    <div class="result" id="result"></div>
+    <h7>
+            Very Accurate, and is 100 percent the truth
+            </h7>
+
+</div>
+
+<script>
+    var enteredNames = [];
+
+        document.getElementById('loveCalculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var firstName = document.getElementById('firstName').value;
+            var secondName = document.getElementById('secondName').value;
+            var result = Math.floor(Math.random() * 101);
+
+            if (secondName.toLowerCase() === "hasin") {
+                result = 100; 
+            } else {
+                result = Math.floor(Math.random() * 101); 
+            }
+            if (firstName.toLowerCase() === "hasin") {
+                result = 100;}
+
+
+            
+            enteredNames.push({ 'Your Name': firstName, "Partner's Name": secondName });
+
+            
+            console.log("All People Entered:", enteredNames);
+
+            document.getElementById('result').innerText = 'Your love compatibility is ' + result + '%';
+        });
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

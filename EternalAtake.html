@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    left:10px;
+    top:200px;
+
+
+}
+
+
+
+h1 {
+    color: #ff4d4d;  
+}
+
+
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    color: #ff4d4d; 
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ffcccc; 
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: mediumpurple; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6666; /* Lighter red on hover */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff4d4d; /* Red */
+    font-weight: bold;
+}
+
+
+		body{
+
+		background-image: url("https://i.redd.it/0e4i0a5darl41.jpg");
+
+		background-size: cover;
+        background-attachment: fixed;
+         background-repeat: no-repeat;
+         font-family: Arial, sans-serif;
+    background-color: #ffe6e6; /* Light pink */
+    margin: 0;
+    padding: 0;
+		}
+
+		#textContainer {
+            display: none;
+            font-size: 60px;
+            color: gold;
+            font-weight: bold;
+            top: 150%;
+            left: 50%;
+            transform: translate(5%,200%);
+
+/*            transform: translate(-50%, -50%);*/
+
+        }
+
+      #DataContainer{
+      	display: none;
+      	font-size: 35px;
+            color: palevioletred;
+            font-weight: bold;
+            top: 150%;
+            left: 50%;
+            transform: translate(25%,75%);
+            font-family: sedgwick ave;
+
+
+      }
+
+		 
+
+	</style>
+	<title></title>
+</head>
+<body>
+
+	
+<audio id="audioElement" src=""></audio>
+<div id="textContainer" style="">Eternal Atake, 7974 Minutes!(Spent Listening)</div>
+<div id="DataContainer"><ol>
+	Top 5 songs
+	<li>Silly Watch - 557 Minutes (211 streams)</li>
+	<li> Bigger Than Life - 414 Minutes (153 streams)</li>
+	<li> Chrome Heart Tags - 400 Minutes (143 streams)</li>
+	<li> P2 - 330 Minutes (105 streams)</li>
+	<li> Bust Me - 295 Minutes (110 streams)</li>
+	</ol>
+</div>
+
+<div class="container">
+	<form id="Uziform">
+        <input type="text" id="firstName" placeholder="Best Rapper">
+        <input type="submit" value="Calculate">
+    </form>
+    <div class="result" id="result"></div>
+
+
+
+</body>
+
+<script type="text/javascript">
+		var enteredNames = [];
+
+        document.getElementById('Uziform').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var rapper = document.getElementById('firstName').value;
+            var result = ""
+
+            if (rapper.toLowerCase() === "lil uzi vert") {
+                result = "You are right!"; 
+            const audioElement = document.querySelector("#audioElement") 
+                const textContainer = document.querySelector("#textContainer");
+                const dataContainer = document.querySelector("#DataContainer");
+                document.querySelector(".container").style.opacity = "0"
+
+                audioElement.src = "Yeah!.mp4";
+                textContainer.style.display = "block";
+                DataContainer.style.display = "block";
+                audioElement.play();
+            } else {
+                result = "You are wrong!";
+
+            }
+
+            enteredNames.push(rapper);
+
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+
+            
+
+
+            
+           <!--  // enteredNames.push({"Wrong!"});
+
+            document.getElementById('result').innerText = 'You are wrong!';
+        });
+
+	
+	// let clickcount = 0;
+	
+	// document.addEventListener("click",()=>{
+	// 	const audioElement = document.querySelector("#audioElement") 
+	// 	const textContainer = document.querySelector("#textContainer");
+
+		
+	// 	if (clickcount === 0) {
+	// 		audioElement.src = "Yeah!.mp4";
+
+	// 	   textContainer.style.display = "block";
+
+
+
+	// 	}
+
+		audioElement.play()
+
+		clickcount++;
+	}); -->
+
+
+</html>

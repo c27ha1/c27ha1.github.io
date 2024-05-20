@@ -1,0 +1,382 @@
+WordSearch
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		table{
+			border-collapse:collapse;
+		}
+
+		td{
+			cursor: pointer;
+			border:1px solid black;
+			width: 20px;
+			height:20px;
+			text-align: center;
+		}
+
+		td.selected{
+			background: purple;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			for (let node of document.querySelectorAll("td")){
+				
+				node.onclick= function(){
+					if(node.className==""){node.className = "selected";
+						checkHighlightedWords();
+                    } else {
+                        node.className = "";
+                    }
+					
+				}
+				if (node.textContent !=""
+					)continue;
+				let charCode = Math.round(65 + Math.random() * 25)
+				node.textContent = String.fromCharCode(charCode)
+			}
+		}
+		
+		function checkHighlightedWords() {
+            let highlightedWords = ["LUV", "PERFECT", "TAPE"];
+            let grid = document.querySelectorAll("td");
+            let text = "";
+            for (let cell of grid) {
+                text += cell.textContent;
+            }
+            for (let word of highlightedWords) {
+                if (text.includes(word)) {
+                    alert("Congratulations! You found the word: " + word);
+                    // Do something when a word is found, like showing a message or triggering an action
+                }
+            }
+        }
+
+        var correctAnswers =['LUV', 'PERFECT', 'TAPE']
+        var score1 = 0;
+        var selectedLetters = [];
+
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>L</td>
+			<td>U</td>
+			<td>V</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr> 
+		<tr>
+			<td></td>
+			<td></td>
+			<td>P</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>E</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>T</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>R</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>F</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>P</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>E</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>E</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>C</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+				<tr>
+			<td></td>
+			<td></td>
+			<td>T</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+				<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+				<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+				<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<ul>
+	<li>make (something) completely free from faults or defects, or as close to such a condition as possible.</li>
+	<li>Acronym for "Lil Uzi Vert</li>
+	<li>a narrow strip of material, as used to hold or fasten something.</li>	
+	</ul>
+</body>
+</html>

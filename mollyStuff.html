@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		
+		.year{
+			border:1px solid black;
+/*			background-color:red;*/
+			border-radius:50%;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+	What does 76,192 minutes mean?
+
+	<script type="text/javascript">
+
+	function makeDiv1(x){
+		var div = document.createElement('div');
+		div.style.width = "20px";
+		div.style.height="20px"
+		div.classList.add('year')
+		// div.innerText=x
+		document.body.appendChild(div)
+
+		if(x<555){
+			div.style.backgroundColor="red"
+		}
+
+
+		}
+
+for (var i=0; i<76192; i=i+1)
+	{makeDiv1(i)}
+		
+	</script>
+
+</body>
+</html>

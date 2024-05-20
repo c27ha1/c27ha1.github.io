@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luv Is Rage 2 Puzzle</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    #board {
+      width: 400px;
+      height: 400px;
+      border: 2px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #board img {
+      width: 79px;
+      height: 79px;
+      border: 0.5px solid purple;
+    }
+
+    #pieces {
+      width: 1040px;
+      height: 160px;
+      border: 2px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #pieces img {
+      width: 79px;
+      height: 79px;
+      border: 0.5px solid purple;
+    }
+  </style>
+</head>
+<body>
+  <div id="board"></div>
+  <h2>Turns: <span id="turns">0</span></h2>
+  <div id="pieces"></div>
+
+  <script type="text/javascript">
+    var rows = 5;
+    var columns = 5;
+    var currenttile;
+    var othertile;
+    var turns = 0;
+
+    window.onload = function() {
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+          let tile = document.createElement("img");
+          tile.src = "blank.png"; // Ensure this image exists
+          document.getElementById("board").append(tile);
+          tile.addEventListener("dragstart", dragStart);
+          tile.addEventListener("dragover", dragOver);
+          tile.addEventListener("dragenter", dragEnter);
+          tile.addEventListener("dragleave", dragLeave);
+          tile.addEventListener("drop", dragDrop);
+          tile.addEventListener("dragend", dragEnd);
+        }
+      }
+
+      let pieces = [];
+      for (let i = 1; i <= rows * columns; i++) {
+        pieces.push(i.toString());
+      }
+
+      pieces.reverse();
+      for (let i = 0; i < pieces.length; i++) {
+        let j = Math.floor(Math.random() * pieces.length);
+        let tmp = pieces[i];
+        pieces[i] = pieces[j];
+        pieces[j] = tmp;
+      }
+
+      for (let i = 0; i < pieces.length; i++) {
+        let tile = document.createElement("img");
+        tile.src = "./images/" + pieces[i] + ".png"; // Ensure correct path and images exist
+        tile.addEventListener("dragstart", dragStart);
+        tile.addEventListener("dragover", dragOver);
+        tile.addEventListener("dragenter", dragEnter);
+        tile.addEventListener("dragleave", dragLeave);
+        tile.addEventListener("drop", dragDrop);
+        tile.addEventListener("dragend", dragEnd);
+        document.getElementById("pieces").append(tile);
+      }
+    }
+
+    function dragStart() {
+      currenttile = this;
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function dragEnter(e) {
+      e.preventDefault();
+    }
+
+    function dragLeave() {}
+
+    function dragDrop() {
+      othertile = this;
+    }
+
+    function dragEnd() {
+      if (currenttile.src.includes("blank")) {
+        return;
+      }
+      let currentImg = currenttile.src;
+      let otherImg = othertile.src;
+      currenttile.src = otherImg;
+      othertile.src = currentImg; // Fixed the variable name here
+
+      turns += 1;
+      document.getElementById("turns").innerText = turns;
+
+    }
+  </script>
+</body>
+</html>

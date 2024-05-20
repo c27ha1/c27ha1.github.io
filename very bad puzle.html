@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Luv Is Rage 2 Puzzle</title>
+</head>
+<body>
+
+  <style type="text/css">
+    body{
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    #board{
+      width: 400px;
+      height: 400px;
+      border: 2px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #board img{
+      width: 79px;
+      height: 79px;
+      border: 0.5px solid purple;
+    }
+
+    #pieces{
+      width:1040px;
+      height: 160px;
+      border: 2px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #pieces img{
+      width: 79px;
+      height: 79px;
+      border: 0.5px solid purple;
+    }
+
+    #Luv2{
+      width: 300px;
+      height: 300px;
+      background-size: contain;
+      background-image: url("https://images.genius.com/099e41c3c6e8f81359e0231aa0bf6018.1000x1000x1.png");
+      position: absolute;
+      left: 50%;
+      top: 20px;
+    }
+  </style>
+
+<div id="board"></div>
+<h2>Turns: <span id="turns">0</span></h2>
+<div id="Luv2" style="position: absolute; left: 10%; top: 20px;"></div>
+<div id="pieces"></div>
+
+<script type="text/javascript">
+    var rows = 5;
+    var columns = 5;
+    var currTile;
+    var otherTile;
+    var turns = 0;
+
+    window.onload = function() {
+        //initialize the 5x5 board
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < columns; c++) {
+                //<img>
+                let tile = document.createElement("img");
+                tile.src = "./images/blank.png";
+                tile.id = "tile" + (r * columns + c + 1); // Assign unique IDs
+
+                //DRAG FUNCTIONALITY
+                tile.addEventListener("dragstart", dragStart); //click on image to drag
+                tile.addEventListener("dragover", dragOver);   //drag an image
+                tile.addEventListener("dragenter", dragEnter); //dragging an image into another one
+                tile.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+                tile.addEventListener("drop", dragDrop);       //drop an image onto another one
+                tile.addEventListener("dragend", dragEnd);      //after you completed dragDrop
+
+                document.getElementById("board").append(tile);
+            }
+        }
+
+        //pieces
+        let pieces = [];
+        for (let i=1; i <= rows*columns; i++) {
+            pieces.push(i.toString()); //put "1" to "25" into the array (puzzle images names)
+        }
+        pieces.reverse();
+        for (let i =0; i < pieces.length; i++) {
+            let j = Math.floor(Math.random() * pieces.length);
+
+            //swap
+            let tmp = pieces[i];
+            pieces[i] = pieces[j];
+            pieces[j] = tmp;
+        }
+
+        for (let i = 0; i < pieces.length; i++) {
+            let tile = document.createElement("img");
+            tile.src = "./images/" + pieces[i] + ".png";
+
+            //DRAG FUNCTIONALITY
+            tile.addEventListener("dragstart", dragStart); //click on image to drag
+            tile.addEventListener("dragover", dragOver);   //drag an image
+            tile.addEventListener("dragenter", dragEnter); //dragging an image into another one
+            tile.addEventListener("dragleave", dragLeave); //dragging an image away from another one
+            tile.addEventListener("drop", dragDrop);       //drop an image onto another one
+            tile.addEventListener("dragend", dragEnd);      //after you completed dragDrop
+
+            document.getElementById("pieces").append(tile);
+        }
+    }
+
+    //DRAG TILES
+    function dragStart() {
+        currTile = this; //this refers to image that was clicked on for dragging
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+    }
+
+    function dragLeave() {}
+
+    function dragDrop() {
+        otherTile = this; //this refers to image that is being dropped on
+    }
+
+    function dragEnd() {
+        if (currTile.src.includes("blank")) {
+            return;
+        }
+        let currImg = currTile.src;
+        let otherImg = otherTile.src;
+        currTile.src = otherImg;
+        otherTile.src = currImg;
+
+        turns += 1;
+        document.getElementById("turns").innerText = turns;
+
+        // Check if puzzle is completed after each move
+        if (isPuzzleCompleted()) {
+            displayTextWithMusic();
+        }
+    }
+
+    function isPuzzleCompleted() {
+        var tiles = document.querySelectorAll("#board img");
+        var correctOrder = [...Array(rows * columns).keys()].map(i => (i + 1).toString());
+
+        // Check if the current arrangement matches the correct order
+        for (var i = 0; i < tiles.length; i++) {
+            if (tiles[i].id !== "tile" + correctOrder[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function displayTextWithMusic() {
+        // Create a div element for the text
+        var textElement = document.createElement("div");
+
+        // Create a paragraph element for the text
+        var paragraph = document.createElement("p");
+        paragraph.style.color = "Grey"; // Change text color
+        paragraph.style.fontFamily = "Arial, sans-serif"; // Change font family
+
+        // Create an ordered list element
+        var orderedList = document.createElement("ol");
+
+        // Create list items for the ordered list
+        var listItem1 = document.createElement("li");
+        listItem1.textContent = "Luv Is Rage 2 (5,252 Minutes!)";
+
+        var listItem2 = document.createElement("li");
+        listItem2.textContent = "My top 5 songs";
+        var listItem3 = document.createElement("li");
+        listItem3.textContent = "Xo Tour Llif3 - 618 Minutes (215 streams)";
+        var listItem4 = document.createElement("li");
+        listItem4.textContent = "The Way Life Goes (feat. Oh Wonder) - 471 Minutes (151 streams)";
+        var listItem5 = document.createElement("li");
+        listItem5.textContent = "Pretty Mami - 466 Minutes (125 streams)";
+        var listItem6 = document.createElement("li");
+        listItem6.textContent = "Feelings Mutual - 443 Minutes (141 streams)";
+        var listItem7 = document.createElement("li");
+        listItem7.textContent = "Dark Queen - 441 Minutes (177 streams)";
+
+        // Append list items to the ordered list
+        orderedList.appendChild(listItem1);
+        orderedList.appendChild(listItem2);
+        orderedList.appendChild(listItem3);
+        orderedList.appendChild(listItem4);
+        orderedList.appendChild(listItem5);
+        orderedList.appendChild(listItem6);
+        orderedList.appendChild(listItem7);
+
+        // Append the ordered list to the paragraph
+        paragraph.appendChild(orderedList);
+
+        // Append the paragraph to the text element
+        textElement.appendChild(paragraph);
+
+        // Append the text element to the body
+        document.body.appendChild(textElement);
+
+        // Play music
+        var audio = new Audio('Xotourlife.mp3');
+        audio.play();
+    }
+</script>
+</body>
+</html>

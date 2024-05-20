@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simon Game</title>
+    <style>
+        body {
+            background-color: rgb(25, 25, 25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .color-btn {
+            height: 200px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        #green {
+            background-color: rgb(150, 255, 150);
+            border-radius: 200px 0 0 0;
+        }
+
+        .green-click {
+            background-color: rgb(150, 255, 150) !important;
+        }
+
+        #red {
+            background-color: red;
+            border-radius: 0 200px 0 0;
+        }
+
+        .red-click {
+            background-color: rgb(255, 150, 150) !important;
+        }
+
+        #yellow {
+            background-color: yellow;
+            border-radius: 0 0 0 200px;
+        }
+
+        .yellow-click {
+            background-color: rgb(255, 255, 150) !important;
+        }
+
+        #blue {
+            background-color: blue;
+            border-radius: 0 0 200px 0;
+        }
+
+        .blue-click {
+            background-color: rgb(150, 150, 255) !important;
+        }
+
+        .play-btn {
+            background-color: rgb(25, 25, 25);
+            border-radius: 50%;
+            box-shadow: 0 0 50px white;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .play-btn p {
+            color: white;
+            font-family: Verdana, sans-serif;
+            font-size: 35px;
+            font-weight: 650;
+            margin: 0;
+        }
+
+        .level {
+            color: white;
+            font-family: Verdana, sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .congratulations {
+            color: yellow;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="green" class="color-btn"></div>
+            <div id="red" class="color-btn"></div>
+        </div>
+        <div class="play-btn play-click">
+            <p class="play-click">SIMON</p>
+            <p class="level hidden">0</p>
+        </div>
+        <div class="row">
+            <div id="yellow" class="color-btn"></div>
+            <div id="blue" class="color-btn"></div>
+        </div>
+        <div class="congratulations hidden">
+            <p>Congratulations! You've reached level 7! Pink Tape is my final album with 7,059 minutes!!</p>
+            <ol>
+                <li>Suicide Doors - 640 minutes (163 streams)</li>
+                <li>Days Come and Go - 546 minutes (149 streams)</li>
+                <li>Rehab - 537 minutes (145 streams)</li>
+                <li>Patience - 501 minutes (129 streams)</li>
+                <li>Pluto to Mars - 472 minutes (145 streams)</li>
+            </ol>
+        </div>
+        <audio id="victory-audio" src="dayscome.mp3"></audio>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        const colors = ["green", "red", "yellow", "blue"];
+        let playing = false;
+        let level = 0;
+        let clicks = 0;
+        let pattern = [];
+
+        const restart = () => {
+            playing = false;
+            level = 0;
+            pattern = [];
+            $('.play-click').text("SIMON");
+            $('.level').text("0").addClass('hidden');
+            $('.congratulations').addClass('hidden');
+            $('#victory-audio')[0].pause();
+            $('#victory-audio')[0].currentTime = 0;
+        };
+
+        const checkSequence = (color) => {
+            if (pattern[clicks] !== color) {
+                alert('You lost!');
+                restart();
+            } else {
+                clicks++;
+                if (clicks === pattern.length) {
+                    setTimeout(nextSequence, 1000);
+                }
+            }
+        };
+
+        const animateClick = (color, clickClass) => {
+            $("#" + color).addClass(clickClass);
+            setTimeout(() => {
+                $("#" + color).removeClass(clickClass);
+            }, 150);
+        };
+
+        const animateSequence = (idx) => {
+            if (idx < pattern.length) {
+                let color = pattern[idx];
+                $("#" + color).fadeOut(200).fadeIn(200, () => {
+                    animateSequence(idx + 1);
+                });
+            }
+        };
+
+        const nextSequence = () => {
+            clicks = 0;
+            let idx = Math.floor(Math.random() * 4);
+            let newColor = colors[idx];
+            pattern.push(newColor);
+            $('.level').text(++level).removeClass('hidden');
+            if (level === 7) {
+                $('.congratulations').removeClass('hidden');
+                $('#victory-audio')[0].play();
+            }
+            animateSequence(0);
+        };
+
+        $(".color-btn").click(e => {
+            let color = e.target.id;
+            let clickClass = color + "-click";
+            if (playing) {
+                animateClick(color, clickClass);
+                checkSequence(color);
+            }
+        });
+
+        $(".play-click").click(() => {
+            if (!playing) {
+                playing = true;
+                clicks = 0;
+                nextSequence();
+            }
+        });
+    </script>
+</body>
+</html>
